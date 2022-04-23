@@ -1,4 +1,4 @@
-# Machine-Learning-Day-Trading-Bot-with-Strategy-Based-on-Deep-Learning-and-SVM-Algorithm
+# Day-Trading-Bot-with-Strategy-Based-on-Deep-Learning-and-SVM-Algorithms
 
 This Project still under development but already has results in notebooks
 
