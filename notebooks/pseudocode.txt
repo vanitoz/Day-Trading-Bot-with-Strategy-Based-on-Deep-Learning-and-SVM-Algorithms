@@ -1,0 +1,41 @@
+Scalping Strategy:
+  Get Tradeable Stocks
+    Filter for Recent News
+    Filter for Volatile Stocks
+    Filter for Trending Stocks
+  Sort by Trendrate
+  Itereate Through Filtered Stocks
+    Buy Limit Order
+    Sell Limit Order
+    
+**********************************
+
+Trading Algo PScode:
+    initialize tradeable stocks list
+    Iterate through list of stocks:
+        if stock is tradeable
+        AND if stock's most recent news is positive
+        AND if stock most recent news has been posted in last 30 minutes:
+        AND stock volume < avg. volume:
+            add stock ticker and number of clicks to tradeable stock list
+    sort tradeable stocks list by number of clicks
+    for each stock ticker:
+        calculate 20 minute moving average
+            stocks_price_day = rs.stocks.get_historicals(inputSymbols='tsla', span='day')
+            get last 4 open prices and divide by 4 = 20 minute moving average
+        #see if stock is trending upwards
+        if 20 minute moving average > current_price:
+            #place buy-limit order to buy at the current price 
+            robin_stocks.orders.order_buy_limit(symbol, quantity, limitPrice, timeInForce='gtc', extendedHours=False)
+            
+************************************************************************************************************************            
+            
+Each day I get a list of tradeable stocks from TD Ameritrade. This list represents all the stocks that are available to buy and sell stocks. 
+I filter and remove stocks that don’t have recent news . 
+If a stock is too volatile based on volume, I remove the stock.
+Next, I calculate the 20 minute moving average of the stock. If the stock is “trending” which means the lastest price is greater than the 20 minutes moving average, then I keep the stock. 
+Finally, I sort my final filtered list of stocks by the trendrate. Now I am ready to purchase stocks and set a sell price.
+I iterate through the list of filtered stocks sorted by trendrate. I place a buy limit order based on the latest price. 
+This usually takes a few seconds to execute and get filled (sometimes it takes much longer or the order doesn’t get filled because the price of the stock is dramatically increasing — I will touch on this and other issues in the following section).
+After I’ve confirmed that the stock is purchased, I set a sell limit order. The sell limit order is set at 1.007% of the purchase price.
+For example, if my algorithm bought a stock at $100 dollars it will set a sell limit order at $100.70. This represents a very modest return but that is the whole point of a scalping strategy.            
