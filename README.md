@@ -2,4 +2,4 @@
 
 
 <p align="center">
-    <img src="pictures/blockchain.png" alt="drawing" width="500" hight="200"/>
+    <img src="pictures/blockchain.png" alt="drawing" width="800" hight="300"/>
