@@ -6,5 +6,5 @@ This Project still under development but already has results in notebooks
     <img src="pictures/blockchain.png" alt="drawing" width="800" hight="300"/>
     
 <p align="left">
-    <img src="results/cum_return_per_min_report.png"  alt="drawing" width="1200" hight="700"/>
+    <img src="results/cum_return_per_min_report.png"  alt="drawing" width="1400" hight="800"/>
     
